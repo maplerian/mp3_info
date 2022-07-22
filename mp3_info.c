@@ -224,7 +224,7 @@ mp3_info_t mp3_get_info(char *path, uint8_t utf8_max_len)
 				/* 歌曲名: TIT2 */
 				/* 专辑名 : TALB */
 				if (decode_len / 2 > utf8_max_len)
-					decode_len = utf8_max_len * 2 + 2;/* 字长度 + 一个结束符 */
+					decode_len = utf8_max_len * 2 + 3;/* 字长度 + 一个结束符 */
 				if (fread(&databuf[10], 1, decode_len, fd) < decode_len) // 读取内容
 					goto MP3_INFO_DECODE_READ_ERR;
 				p = malloc(decode_len * 3 / 2);/* 申请内容存储空间 */
